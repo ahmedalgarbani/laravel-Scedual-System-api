@@ -29,7 +29,7 @@ class TimestableController extends Controller
 
         $search = '%' . $param . '%';
         $result = Timestable::where(function ($query) use ($search) {
-            $columns = ['subject_id', 'room_id', 'day', 'start_time', 'end_time'];
+            $columns = ['subject_id','lecturer_id','semester_id', 'room_id', 'day', 'start_time', 'end_time'];
             foreach ($columns as $column) {
                 $query->orWhere($column, 'LIKE', $search);
             }
@@ -62,6 +62,8 @@ class TimestableController extends Controller
                 'name' => 'required|max:255',
                 'subject_id' => 'required',
                 'room_id' => 'required',
+                'semester_id' => 'required',
+                'lecturer_id' => 'required',
                 'day' => 'nullable',
                 'start_time' => 'required',
                 'end_time' => 'required',
@@ -71,6 +73,8 @@ class TimestableController extends Controller
                 'name' => $request->name,
                 'subject_id' => $request->subject_id,
                 'room_id' => $request->room_id,
+                'lecturer_id' => $request->lecturer_id,
+                'semester_id' => $request->semester_id,
                 'day' => $request->day,
                 'start_time' => $request->start_time,
                 'end_time' => $request->end_time,
@@ -103,6 +107,8 @@ class TimestableController extends Controller
                 'name' => 'required|max:255',
                 'subject_id' => 'required',
                 'room_id' => 'required',
+                'semester_id' => 'required',
+                'lecturer_id' => 'required',
                 'day' => 'nullable',
                 'start_time' => 'required',
                 'end_time' => 'required',
@@ -116,6 +122,8 @@ class TimestableController extends Controller
                 'name' => $request->name,
                 'subject_id' => $request->subject_id,
                 'room_id' => $request->room_id,
+                'lecturer_id' => $request->lecturer_id,
+                'semester_id' => $request->semester_id,
                 'day' => $request->day,
                 'start_time' => $request->start_time,
                 'end_time' => $request->end_time,

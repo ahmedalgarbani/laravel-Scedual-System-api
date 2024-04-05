@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-
+Route::middleware(['auth:api','role:admin'])->group(function (){
 //---------Rooms----------//
 Route::get('rooms',[RoomController::class,'index']);
 Route::get('room/{id}',[RoomController::class,'show']);
@@ -119,11 +119,13 @@ Route::delete('department/{id}',[DepartmentController::class,'destroy']);
 //---------departments----------//
 
 ////---------users----------//
-Route::get('users',[UserController::class,'index']);
-Route::get('user/{id}',[UserController::class,'show']);
-Route::post('user',[UserController::class,'register']);
-Route::put('user/{id}',[UserController::class,'update']);
-Route::delete('user/{id}',[UserController::class,'destroy']);
+
+    Route::get('users',[UserController::class,'index']);
+    Route::get('user/{id}',[UserController::class,'show']);
+    Route::post('user',[UserController::class,'register']);
+    Route::put('user/{id}',[UserController::class,'update']);
+    Route::delete('user/{id}',[UserController::class,'destroy']);
+});
 //---------users----------//
 
 

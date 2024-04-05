@@ -12,6 +12,7 @@ use Illuminate\Validation\ValidationException;
 class RoomController extends Controller
 {
     use ApiResponseTrait;
+
     public function index(){
        $Rooms = Room::all();
         if (!$Rooms){
@@ -41,12 +42,14 @@ class RoomController extends Controller
                 'name' => 'required|max:255',
                 'capacity' => 'required|max:11',
                 'location' => 'nullable|max:255',
+                'department_id' => 'required',
             ])->validate();
 
             $Room = Room::create([
                 'name'=>$request->name,
                 'capacity'=>$request->capacity,
                 'location'=>$request->location,
+                'department_id'=>$request->department_id,
             ]);
 
             if ($Room){
@@ -74,6 +77,7 @@ class RoomController extends Controller
                 'name' => 'required|max:255',
                 'capacity' => 'required|max:11',
                 'location' => 'nullable|max:255',
+                'department_id' => 'required',
             ])->validate();
 
 
@@ -85,6 +89,7 @@ class RoomController extends Controller
                 'name'=>$request->name,
                 'capacity'=>$request->capacity,
                 'location'=>$request->location,
+                'department_id'=>$request->department_id,
             ]);
 
             if ($Room){

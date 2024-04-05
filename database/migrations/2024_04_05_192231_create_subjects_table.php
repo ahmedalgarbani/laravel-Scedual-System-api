@@ -19,8 +19,7 @@ class CreateSubjectsTable extends Migration
             $table->string('short_name')->nullable();
             $table->text('description')->nullable();
             $table->integer('hour')->default(1);
-//            $table->unsignedBigInteger('department_id');
-            $table->foreignId('department_id')->references('id')->on('departments');
+            $table->foreignId('department_id')->constrained('departments')->onDelete('cascade');
             $table->timestamps();
         });
     }

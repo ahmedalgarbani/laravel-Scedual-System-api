@@ -41,7 +41,7 @@ class SubjectController extends Controller
                 'short_name' => 'nullable',
                 'description' => 'nullable',
                 'hour' => 'nullable',
-                'department_id' => 'nullable',
+                'department_id' => 'required',
             ])->validate();
 
             $subject = Subject::create([
@@ -82,6 +82,7 @@ class SubjectController extends Controller
                 'short_name' => 'nullable',
                 'description' => 'nullable',
                 'hour' => 'nullable',
+                'department_id' => 'required',
             ])->validate();
 
             $subject = Subject::findOrFail($id);

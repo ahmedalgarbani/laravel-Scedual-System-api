@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('registration_number')->unique();
             $table->string('address')->nullable();
+            $table->foreignId('department_id')->constrained('departments')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -40,12 +40,14 @@ class StudentController extends Controller
                 'name' => 'required|max:255',
                 'address' => 'nullable|max:255',
                 'registration_number' => 'required|unique:students|max:255',
+                'department_id' => 'required',
             ])->validate();
 
             $student = Student::create([
                 'name'=>$request->name,
                 'address'=>$request->address,
                 'registration_number'=>$request->registration_number,
+                'department_id'=>$request->department_id,
             ]);
 
             if ($student){
@@ -73,6 +75,7 @@ class StudentController extends Controller
                 'name' => 'required|max:255',
                 'address' => 'nullable|max:255',
                 'registration_number' => 'unique:students|max:255',
+                'department_id' => 'required',
             ])->validate();
 
             $student = Student::findOrFail($id);
@@ -83,6 +86,7 @@ class StudentController extends Controller
                 'name'=>$request->name,
                 'address'=>$request->address,
                 'registration_number'=>$request->registration_number,
+                'department_id'=>$request->department_id,
             ]);
 
             if ($student){

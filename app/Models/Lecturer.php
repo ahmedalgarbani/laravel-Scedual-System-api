@@ -19,6 +19,8 @@ class Lecturer extends Model
         'name',
         'address',
         'specialization',
+        'description',
+        'department_id',
     ];
     public function departments()
     {

@@ -41,12 +41,16 @@ class LecturerController extends Controller
                 'name' => 'required|max:255',
                 'address' => 'nullable|max:255',
                 'specialization' => 'nullable|max:255',
+                'description' => 'nullable',
+                'department_id' => 'required',
             ])->validate();
 
             $Lecturer = Lecturer::create([
                 'name'=>$request->name,
                 'address'=>$request->address,
                 'specialization'=>$request->specialization,
+                'description'=>$request->description,
+                'department_id'=>$request->department_id,
             ]);
 
             if ($Lecturer){
@@ -74,6 +78,8 @@ class LecturerController extends Controller
                 'name' => 'required|max:255',
                 'address' => 'nullable|max:255',
                 'specialization' => 'nullable|max:255',
+                'description' => 'nullable',
+                'department_id' => 'required',
             ])->validate();
 
             $Lecturer = Lecturer::findOrFail($id);
@@ -84,6 +90,8 @@ class LecturerController extends Controller
                 'name'=>$request->name,
                 'address'=>$request->address,
                 'specialization'=>$request->specialization,
+                'description'=>$request->description,
+                'department_id'=>$request->department_id,
             ]);
 
             if ($Lecturer){
